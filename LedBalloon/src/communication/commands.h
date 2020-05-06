@@ -38,34 +38,4 @@
 //#define IR_F4   23
 
 
-/*
-// Here's the other controller
-#define IR_ADD  65280
-#define IR_A1   9
-#define IR_A2   29
-#define IR_A3   31
-#define IR_A4   13
-#define IR_B1   25
-#define IR_B2   27
-#define IR_B3   17
-#define IR_B4   21
-#define IR_C1   23
-#define IR_C2   18
-#define IR_C3   22
-#define IR_C4   77
-#define IR_D1   64
-#define IR_D2   76
-#define IR_D3   4
-#define IR_D4   0
-#define IR_E1   10
-#define IR_E2   30
-#define IR_E3   14
-#define IR_E4   26
-#define IR_F1   28
-#define IR_F2   20
-#define IR_F3   15
-#define IR_F4   12
-*/
-
-
 #endif
