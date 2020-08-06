@@ -113,6 +113,8 @@ class Ledstripe{
         void RainbowPalette();
         void SetupTotallyRandomPalette();
         void SetupBlackAndWhiteStripedPalette();
+        void SetupPurpleAndBlackStripedPalette();
+        void SetupRainbowStripedPalette();
         void SetupPurpleAndGreenPalette();
         void ChangePalettePeriodically();
         void sawtooth();

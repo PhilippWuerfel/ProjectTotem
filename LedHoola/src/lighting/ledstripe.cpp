@@ -104,6 +104,15 @@ void Ledstripe::SetupBlackAndWhiteStripedPalette()
     currentPalette[12] = CRGB::White;    
 }
 
+void Ledstripe::SetupRainbowStripedPalette()
+{
+    // 'black out' all 16 palette entries...
+    fill_solid( currentPalette, 16, CRGB::Black);
+    // and set every fourth one to white.
+    currentPalette = RainbowStripeColors_p;
+    currentBlending = LINEARBLEND;    
+}
+
 // This function sets up a palette of purple and green stripes.
 void Ledstripe::SetupPurpleAndGreenPalette()
 {
@@ -115,6 +124,19 @@ void Ledstripe::SetupPurpleAndGreenPalette()
                                    green,  green,  black,  black,
                                    purple, purple, black,  black,
                                    green,  green,  black,  black,
+                                   purple, purple, black,  black );
+}
+
+// This function sets up a palette of purple and green stripes.
+void Ledstripe::SetupPurpleAndBlackStripedPalette()
+{
+    CRGB purple = CHSV( HUE_PURPLE, 255, 255);
+    CRGB black  = CRGB::Black;
+    
+    currentPalette = CRGBPalette16(
+                                   purple,  purple,  black,  black,
+                                   purple, purple, black,  black,
+                                   purple,  purple,  black,  black,
                                    purple, purple, black,  black );
 }
 

@@ -8,13 +8,13 @@ Ledstripe ledstripe;
 
 void setup() {
 
-  Serial.begin(9600);  // Initialize serial port for debugging.
+  // Serial.begin(9600);  // Initialize serial port for debugging.
   
   delay(750);  // Soft startup to ease the flow of electrons.
   
   infrared.begin();
   
-  ledstripe.setBrightness(70); // 128   
+  ledstripe.setBrightness(70); // 70 // 128   
   ledstripe.setMaxPowerInVoltsAndMilliamps(5, 1000);
 
   ledstripe.currentPalette = RainbowColors_p; // you can change this later
@@ -28,7 +28,29 @@ void loop() {
 
   if (!infrared.receiving()) {
           // experiment with lightshows here
-          if(infrared.currentmode == 1){
+          if(infrared.currentmode == 1){ 
+            // Button: Power
+            ledstripe.fadeToBlack(NUM_LEDS, 30);
+            int pos = random16(NUM_LEDS);
+            ledstripe.leds[pos] = CHSV(135,80,200);
+            ledstripe.show();
+          }
+          if(infrared.currentmode == 2){
+            // Button: Plau/Pause
+            ledstripe.rainbow_march(200, 10);
+            ledstripe.show();
+          }
+          if(infrared.currentmode == 3){
+            // Button: Vol +
+            ledstripe.RainbowPalette(); // SetupRainbowStripedPalette();
+            static uint8_t startIndex3 = 0;
+            startIndex3 = startIndex3 + 1; // motion speed            
+            ledstripe.FillLEDsFromPaletteColors( startIndex3);            
+            ledstripe.show();
+            ledstripe.delay(1000 / UPDATES_PER_SECOND);
+          }
+          if(infrared.currentmode == 4){
+            // Button: Vol -
             ledstripe.ChangePalettePeriodically();        
             static uint8_t startIndex = 0;
             startIndex = startIndex + 1; // motion speed            
@@ -36,70 +58,19 @@ void loop() {
             ledstripe.show();
             ledstripe.delay(1000 / UPDATES_PER_SECOND);
           }
-          if(infrared.currentmode == 2){
-            ledstripe.rainbow_march(200, 10);
-            ledstripe.show();
-          }
-          if(infrared.currentmode == 3){ 
-            ledstripe.RainbowPalette();
-            static uint8_t startIndex3 = 0;
-            startIndex3 = startIndex3 + 1; // motion speed            
-            ledstripe.FillLEDsFromPaletteColors( startIndex3);            
-            ledstripe.show();
-            ledstripe.delay(1000 / UPDATES_PER_SECOND);
-          }
-          if(infrared.currentmode == 4){ 
-            ledstripe.fadeToBlack(NUM_LEDS, 30);
-            int pos = random16(NUM_LEDS);
-            ledstripe.leds[pos] = CHSV(135,80,200);
-            ledstripe.show();
-          }
           if(infrared.currentmode == 5){
+            // Button: Next
             ledstripe.sawtooth();
             ledstripe.show();
           }
           if(infrared.currentmode == 6){
-            ledstripe.blendwave();
+            // Button: Prev
+            ledstripe.sawtoothBlue();
             ledstripe.show();
           }
           if(infrared.currentmode == 7){
+            // Button: 3D
             ledstripe.rainbow_beat();
-            ledstripe.show();
-          }
-          if(infrared.currentmode == 8){
-              ledstripe.inoise8_fire();
-              ledstripe.show();
-          }
-          if(infrared.currentmode == 9){
-              ledstripe.sawtoothBlue();
-              ledstripe.show();
-          }
-          if(infrared.currentmode == 10){
-            ledstripe.inoise8_icefire();
-            ledstripe.show();
-          }
-          if(infrared.currentmode == 11){
-            ledstripe.fill(NUM_LEDS, CRGB::Blue);
-            ledstripe.show();
-          }
-          if(infrared.currentmode == 12){
-            ledstripe.fill(NUM_LEDS, CRGB::Purple);
-            ledstripe.show();
-          }
-          if(infrared.currentmode == 13){
-            ledstripe.fill(NUM_LEDS, CRGB::Green);
-            ledstripe.show();
-          }
-          if(infrared.currentmode == 14){
-            ledstripe.fill(NUM_LEDS, CRGB::Orange);
-            ledstripe.show();
-          }
-          if(infrared.currentmode == 15){
-            ledstripe.fill(NUM_LEDS, CRGB::White);
-            ledstripe.show();
-          }
-          if(infrared.currentmode == 21){
-            ledstripe.fill(NUM_LEDS, CRGB::Black);
             ledstripe.show();
           }
   }

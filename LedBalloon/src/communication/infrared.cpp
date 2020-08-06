@@ -34,8 +34,9 @@ void Infrared::irlcall() {
     
     auto data = IRLremote.read();  // Get the new data from the remote
     
-    //    Serial.print(F("Address: "));  // Print the protocol data. Note that there's also 65535, which we don't use.
-    //    Serial.println(data.address);
+    Serial.print(F("Address: "));  // Print the protocol data. Note that there's also 65535, which we don't use.
+    Serial.println(data.address);
+    
     Serial.print(F("Command: "));
     Serial.println(data.command);
     Serial.println();
