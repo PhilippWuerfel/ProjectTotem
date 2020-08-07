@@ -39,7 +39,7 @@
 //#define LED_CK 11                                             // Clock pin for WS2801 or APA102.
 #define COLOR_ORDER GRB                                       // It's GRB for WS2812 and BGR for APA102.
 #define LED_TYPE WS2812                                       // Using APA102, WS2812, WS2801. Don't forget to modify LEDS.addLeds to suit.
-#define NUM_LEDS 90                                           // Number of LED's.
+#define NUM_LEDS 69                                           // Number of LED's.
 #define UPDATES_PER_SECOND 100
 
 // This example shows how to set up a static color palette

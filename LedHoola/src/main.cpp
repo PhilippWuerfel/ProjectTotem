@@ -41,6 +41,11 @@ void loop() {
             ledstripe.show();
           }
           if(infrared.currentmode == 3){
+            // Button: 3D
+            ledstripe.rainbow_beat();
+            ledstripe.show();
+          }
+          if(infrared.currentmode == 4){
             // Button: Vol +
             ledstripe.RainbowPalette(); // SetupRainbowStripedPalette();
             static uint8_t startIndex3 = 0;
@@ -49,7 +54,7 @@ void loop() {
             ledstripe.show();
             ledstripe.delay(1000 / UPDATES_PER_SECOND);
           }
-          if(infrared.currentmode == 4){
+          if(infrared.currentmode == 5){
             // Button: Vol -
             ledstripe.ChangePalettePeriodically();        
             static uint8_t startIndex = 0;
@@ -58,19 +63,14 @@ void loop() {
             ledstripe.show();
             ledstripe.delay(1000 / UPDATES_PER_SECOND);
           }
-          if(infrared.currentmode == 5){
+          if(infrared.currentmode == 6){
             // Button: Next
             ledstripe.sawtooth();
             ledstripe.show();
           }
-          if(infrared.currentmode == 6){
+          if(infrared.currentmode == 7){
             // Button: Prev
             ledstripe.sawtoothBlue();
-            ledstripe.show();
-          }
-          if(infrared.currentmode == 7){
-            // Button: 3D
-            ledstripe.rainbow_beat();
             ledstripe.show();
           }
   }
